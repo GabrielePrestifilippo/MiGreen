@@ -1,66 +1,58 @@
 import React from 'react';
 import {SafeAreaView, ScrollView, StatusBar, Button, Text} from 'react-native';
-import ScanPlugin from '@hmscore/react-native-hms-scan';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Splash from './screens/Splash';
+import Home from './screens/Home';
+import Dashboard from './screens/Dashboard';
+import Play from './screens/Play';
+import Shop from './screens/Shop';
+import EcoProduct from './screens/EcoProduct';
+import BadProduct from './screens/BadProduct';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="Splash"
+          component={Splash}
+        />
+        <Stack.Screen
+          name="EcoProduct"
+          component={EcoProduct}
+          options={{title: 'Eier Freiland 53+', headerShown: false}}
+        />
+        <Stack.Screen
+          name="BadProduct"
+          component={BadProduct}
+          options={{title: 'Festival Nr.2', headerShown: false}}
+        />
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Dashboard"
+          component={Dashboard}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Play"
+          component={Play}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Shop"
+          component={Shop}
+          options={{headerShown: false}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
-
-function HomeScreen({navigation}) {
-  let defaultViewRequest = {
-    scanType: ScanPlugin.ScanType.All,
-    additionalScanTypes: [],
-  };
-  //Call requestCameraAndStoragePermission API.
-  ScanPlugin.Permission.requestCameraAndStoragePermission().then(res =>
-    console.log('Result:', res),
-  );
-
-  const scan = () => {
-    ScanPlugin.Permission.hasCameraAndStoragePermission().then(
-      res => console.log('Result:', res),
-      ScanPlugin.Utils.startDefaultView(defaultViewRequest)
-        .then(res => console.log(res)) // ScanResponse
-        .catch(e => console.log(e)),
-    );
-  };
-  return (
-    <SafeAreaView>
-      <StatusBar />
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <Text>Welcome</Text>
-        <Button title="scan" onPress={scan} />
-        <Button
-          title="Go to Details"
-          onPress={() => navigation.navigate('Details')}
-        />
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
-
-function DetailsScreen({navigation}) {
-  return (
-    <ScrollView>
-      <Text>Details Screen</Text>
-      <Button
-        title="Go to Details... again"
-        onPress={() => navigation.push('Details')}
-      />
-      <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
-    </ScrollView>
-  );
-}
 
 export default App;
