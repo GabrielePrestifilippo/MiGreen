@@ -1,0 +1,21 @@
+{
+  "name": "openapi-backend-express",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Viljami Kuosmanen <viljami@avoinsorsa.fi>",
+  "license": "MIT",
+  "keywords": [],
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "openapi-backend": "^4.0.0"
+  },
+  "devDependencies": {
+    "axios": "^0.21.1",
+    "jest": "^27.0.4",
+    "wait-on": "^3.2.0"
+  }
+}

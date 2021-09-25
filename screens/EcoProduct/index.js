@@ -3,20 +3,24 @@ import {ImageBackground, StyleSheet, Image, Dimensions} from 'react-native';
 import {Text, View, Button} from 'react-native-ui-lib'; //eslint-disable-line
 
 const eggs = require('./eggs.png');
+const image = require('../img/eggs.png');
 const EcoProduct = ({navigation}) => {
   const {width} = Dimensions.get('window');
 
   return (
-    <View style={styles.container}>
+    <ImageBackground source={image} resizeMode="cover" style={styles.image}>
       <View />
-      <Image source={eggs} style={{width: '100%', height: width / 1.28}} />
+      <Image
+        source={eggs}
+        style={{width: '100%', height: width / 1.28, marginTop: 50}}
+      />
       <View
         style={{
           flex: 1,
           textAlign: 'center',
-          alignContent: 'center',
+          alignContent: 'flex-end',
           alignItems: 'center',
-          marginTop: 200,
+          marginTop: 330,
         }}>
         <Button
           backgroundColor="#FFFFFF"
@@ -27,7 +31,7 @@ const EcoProduct = ({navigation}) => {
           enableShadow
         />
       </View>
-    </View>
+    </ImageBackground>
   );
 };
 const styles = StyleSheet.create({

@@ -2,7 +2,7 @@ import React from 'react';
 import {ImageBackground, StyleSheet} from 'react-native';
 import {Text, View, Button} from 'react-native-ui-lib'; //eslint-disable-line
 
-const image = require('./background.jpeg');
+const image = require('../img/dashboard.png');
 const Dashboard = ({navigation}) => {
   return (
     <View style={styles.container}>

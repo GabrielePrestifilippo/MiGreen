@@ -3,7 +3,7 @@ import {ImageBackground, StyleSheet} from 'react-native';
 import {Text, View, Button} from 'react-native-ui-lib'; //eslint-disable-line
 import ScanPlugin from '@hmscore/react-native-hms-scan';
 
-const image = require('./background.jpeg');
+const image = require('../img/scan.png');
 const Shop = ({navigation, route}) => {
   let defaultViewRequest = {
     scanType: ScanPlugin.ScanType.All,

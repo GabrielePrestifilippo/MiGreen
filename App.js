@@ -9,8 +9,10 @@ import Play from './screens/Play';
 import Shop from './screens/Shop';
 import EcoProduct from './screens/EcoProduct';
 import BadProduct from './screens/BadProduct';
+import {hideNavigationBar} from 'react-native-navigation-bar-color';
 
 const App = () => {
+  hideNavigationBar();
   const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer>

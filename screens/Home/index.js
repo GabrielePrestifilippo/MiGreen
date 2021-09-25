@@ -35,7 +35,7 @@ const Home = ({navigation}) => {
             backgroundColor="#FFF"
             label="Shop"
             labelStyle={{fontFamily: 'Alef-Bold', color: '#f5821f'}}
-            style={{width: 300, margin: 10}}
+            style={{width: 300, margin: 10, marginBottom: 70}}
             onPress={() => navigation.navigate('Shop')}
             enableShadow
           />

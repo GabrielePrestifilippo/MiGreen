@@ -4,7 +4,7 @@ import {Text, Button} from 'react-native-ui-lib';
 import {CommonActions} from '@react-navigation/native';
 
 const Splash = ({navigation}) => {
-  const image = require('./image1.jpeg');
+  const image = require('../img/intro1.png');
 
   const onDone = () => {
     navigation.dispatch(

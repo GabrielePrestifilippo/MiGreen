@@ -13,6 +13,11 @@ const Play = ({navigation}) => {
       allowFileAccess={true}
       allowUniversalAccessFromFileURLs={true}
       onLoad={() => setRendered(true)}
+      onNavigationStateChange={navState => {
+        if (navState.title === 'https://www.migros.ch/de.html') {
+          navigation.navigate('Home');
+        }
+      }}
       source={
         rendered
           ? {uri: 'file:///android_asset/pageGame/index.html'}
